@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TodoList</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if flash.present? %>
+  <div class="flash">
+    <% for type in flash.keys  do %>
+      <div class="flash-<%=type%>">
+       <%= flash[type] %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

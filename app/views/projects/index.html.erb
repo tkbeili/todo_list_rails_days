@@ -1,0 +1,12 @@
+<h1>Projects</h1>
+
+<ul>
+  <% for project in @projects do %>
+    <li>
+      <%= project.title %>
+      <%= link_to "View", project_path(project) %>
+      <%= link_to "Edit", edit_project_path(project) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Project", new_project_path %>
