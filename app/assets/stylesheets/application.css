@@ -21,3 +21,7 @@
 .flash-success {
   color: #00CC00;
 }
+
+.field_with_errors {
+  background: red;
+}

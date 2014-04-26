@@ -6,3 +6,28 @@
 
 <%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: "Are you sure?"} %>
 <%= link_to "Back", projects_path %>
+
+<p>
+  Created On:
+  <%= formatted_date(@project.created_at) %>
+</p>
+
+<hr>
+
+<h2> Create a task</h2>
+
+<%= form_for [@project, @task] do |f| %>
+  <%= f.text_field :title, placeholder: "Task Title" %>
+  <%= f.submit %>
+<% end %>
+
+All Taskss
+<ul>
+  <% @project.tasks.each do |task| %>
+    <li>
+      <%= task.title %>
+      <%= formatted_date(task.created_at) %>
+      <%= link_to "Delete", [@project, task], method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </li>
+  <% end %>
+</ul>
